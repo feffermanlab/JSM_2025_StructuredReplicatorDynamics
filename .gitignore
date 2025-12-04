@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+#Stuff I Added For MATLAB
+*.fig
+*.asv
+*.png
+
 # Distribution / packaging
 .Python
 build/
