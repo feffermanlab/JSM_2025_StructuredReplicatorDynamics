@@ -13,30 +13,29 @@ add_ternary_paths
 
 
 %Initial strategy profile
-u0=[0.2,0.98,0.01,0.2;
-    0.6,0.01,0.98,0.3;
-    0.2,0.01,0.01,0.5]
+u0=[0.3,0.3;
+    0.3,0.3;
+    0.4,0.4];
 %Number of players given by the number of columns in u0
 n=length(u0(1,:));
 %Number of strategies given by the number of rows in u0
 m=length(u0(:,1));
 
 %Adjacency matrix must be an nXn sysmmetric matrix
-W=[0,1,0,1;
-   1,0,1,0;
-   0,1,0,1;
-   1,0,1,0]
+W=[0,1;
+    1,0];
 
 %Payoff matrix must be an mxm matrix
-A=-eye(m) %................................anti-coordination
+%A=-eye(m) %...............................anti-coordination
 %A=eye(m) %................................coordination
+A=[0,1,-1;-1,0,1;1,-1,0]; %...............RPS
 %A=[0,1,-2;-2,0,1;1,-2,0]; %...............Skew RPS
 %A=[0,1,-1,0;0,0,1,-1;-1,0,0,1;1,-1,0,0] %.4x4 RPS
 %A=[-1,-3,-3;-3,-1,-3;-3,-3,-1]; %.........Shifted coordination
 %A=[-1,-2,0; 0,-1,-2; -4,0,-1]; %..........Other
 
 %Start and End times for solution
-tspan = [0,20]
+tspan = [0,80]
 
 %Solve the IVP with u0 initial data on tpsan
 %At a time slice u(t,:) is an nxm dimensional vector 
